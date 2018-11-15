@@ -55,6 +55,18 @@
 		    <version>1.4</version>
 		</dependency>
 		
+		<!-- Driver JDBC PostgreSQL. -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
+		
+		<!-- Flyway -->
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
+		
 	</dependencies>
 
 	<build>

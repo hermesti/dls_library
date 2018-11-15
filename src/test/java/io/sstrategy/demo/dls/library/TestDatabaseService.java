@@ -1,7 +1,9 @@
 package io.sstrategy.demo.dls.library;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,6 +27,9 @@ public class TestDatabaseService {
 	@Autowired
 	private AnimalRepo animalRepo;
 	
+	// Entities that should be removed from database after test execution.
+	private List<Animal> testAnimals = new ArrayList<>();
+	
 	@Test
 	public void testStoreAnimal() {
 		
@@ -34,10 +39,18 @@ public class TestDatabaseService {
 		
 		// Act.
 		databaseService.storeAnimal(animal);
+		testAnimals.add(animal);
 		
 		// Assert.
 		List<Animal> storedAnimals = animalRepo.findAll();
 		Assert.assertEquals("An animal should have been stored in database.", 1, storedAnimals.size());
 		
+	}
+	
+	@After
+	public void clean() {
+		for (Animal animal : testAnimals) {
+			animalRepo.delete(animal);
+		}
 	}
 }

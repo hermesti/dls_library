@@ -48,6 +48,13 @@
 			<artifactId>h2</artifactId>
 		</dependency>
 		
+		<!-- org.apache.commons.dbcp.BasicDataSource (Para el datasource que usarán los tests) -->
+		<dependency>
+		    <groupId>commons-dbcp</groupId>
+		    <artifactId>commons-dbcp</artifactId>
+		    <version>1.4</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
